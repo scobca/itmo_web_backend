@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from "@nestjs/common";
+import { Body, Controller, HttpCode, Inject, Post } from "@nestjs/common";
 import { AuthProvider } from "../providers/auth.provider";
 import { UserDto } from "../dto/user.dto";
 
@@ -7,8 +7,8 @@ export class AuthController {
   constructor(@Inject(AuthProvider) private authProvider: AuthProvider) {}
 
   @Post("/create")
+  @HttpCode(200)
   async createUser(@Body() data: UserDto) {
     return await this.authProvider.createUser(data);
-    // return data;
   }
 }

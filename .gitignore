@@ -3,6 +3,7 @@
 /node_modules
 
 /src/conf/db.conf.ts
+/src/modules/auth/providers/jwt.options.module.ts
 
 # Logs
 logs

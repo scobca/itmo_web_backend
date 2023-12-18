@@ -3,7 +3,7 @@ import { AppController } from "./controllers/app.controller";
 import { AppService } from "./providers/app.service";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { dbConf } from "../../conf/db.conf";
-import { AuthModule } from "../../auth/auth.module";
+import { AuthModule } from "../auth/auth.module";
 
 @Module({
   imports: [
@@ -16,5 +16,4 @@ import { AuthModule } from "../../auth/auth.module";
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-}
+export class AppModule {}

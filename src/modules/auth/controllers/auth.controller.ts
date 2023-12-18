@@ -11,4 +11,10 @@ export class AuthController {
   async createUser(@Body() data: UserDto) {
     return await this.authProvider.createUser(data);
   }
+
+  @Post("/login")
+  @HttpCode(200)
+  async loginUser(@Body() data: UserDto) {
+    return await this.authProvider.loginUser(data);
+  }
 }

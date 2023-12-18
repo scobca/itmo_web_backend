@@ -30,4 +30,19 @@ export class AuthProvider {
       }
     });
   }
+
+  public async loginUser(data: UserDto): Promise<AuthModel> {
+    return await AuthModel.findOne({
+      where: {
+        login: data.login,
+        password: data.password,
+      },
+    }).then((res: any) => {
+      if (res) {
+        return res.token;
+      } else {
+        throw new Error("User not defined.");
+      }
+    });
+  }
 }

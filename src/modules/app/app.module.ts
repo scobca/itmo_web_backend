@@ -4,6 +4,7 @@ import { AppService } from "./providers/app.service";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { dbConf } from "../../conf/db.conf";
 import { AuthModule } from "../auth/auth.module";
+import { CordsModule } from "../cords/cords.module";
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AuthModule } from "../auth/auth.module";
       ...dbConf,
     }),
     AuthModule,
+    CordsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

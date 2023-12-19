@@ -7,6 +7,16 @@ import { JwtService } from "@nestjs/jwt";
 export class AuthProvider {
   constructor(private jwtService: JwtService) {}
 
+  public async findUser(data: { token: string }): Promise<AuthModel> {
+    const res: any = await AuthModel.findOne({
+      where: {
+        token: data.token,
+      },
+    });
+
+    return res.id;
+  }
+
   public async createUser(data: UserDto): Promise<AuthModel> {
     return await AuthModel.findOne({
       where: {
